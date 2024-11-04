@@ -7,7 +7,7 @@ const { getAllTasks,
      updateTasks, 
      deleteTasks,  } = require('../controllers/Tasks')
 
-const {login, dashboard } = require('../controllers/main.js')
+const { register, login, dashboard } = require('../controllers/main.js')
 
 router.route('/')
 .get(getAllTasks)
@@ -20,7 +20,9 @@ router.route('/:id')
 
 
 const authMiddleware = require('../middleware/auth.js')
-router.route('/dashboard').get(authMiddleware, dashboard)
+router.route('/dashboard')
+.get(authMiddleware, dashboard)
+router.route('/register').post(register)
 router.route('/login').post(login)
 
 module.exports = router

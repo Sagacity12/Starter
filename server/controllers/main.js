@@ -1,5 +1,10 @@
+const User = require("./user.js");
 const jwt = require("jsonwebtoken");
 const { BadRequestError } = require("../errors");
+
+const register = async (req, res ) =>{
+    res.send('register user')
+}
 
 const login = async (req, res) => {
   const { username, password } = req.body;
@@ -38,6 +43,7 @@ const dashboard = async (req, res) => {
 };
 
 module.exports = {
+    register,
   login,
   dashboard,
 };
